@@ -17,6 +17,8 @@ function selectOption(option) {
         var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
         var newSize = parseFloat(currentFontSize) * 2; // Increase font size by  * 2px
         yesButton.style.fontSize = newSize + 'px';
+
+        displayApple();
     } else {
         // If neither "Yes" nor "No" was clicked, show an alert message
         alert('Invalid option!');
@@ -76,6 +78,23 @@ function displayCatHeart() {
     };
 }
 
+// Function to display apple.png
+function displayApple() {
+    // Clear existing content in the image container
+    var imageContainer = document.getElementById('image-container');
+    imageContainer.innerHTML = '';
+
+    // Create apple image
+    var appleImage = new Image();
+    appleImage.src = 'apple.png'; // файл из репозитория
+    appleImage.alt = 'Apple';
+
+    appleImage.onload = function() {
+        imageContainer.appendChild(appleImage);
+    };
+}
+
 // Display the cat.gif initially
 displayCat();
+
 
